@@ -5,6 +5,6 @@ resource "aws_instance" "new_instance" {
     vpc_security_group_ids = [aws_security_group.security_group.id]
 
     tags = {
-      Name = "Server1"
+      Name = "Server-1"
     }
 }
