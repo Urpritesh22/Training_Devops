@@ -1,0 +1,10 @@
+---
+- name: Adding user
+  hosts: all
+  become: true
+  tasks:
+    user:
+      name: tom
+      uid: 1
+      comment: "Tom Patil"
+      createHome: yes     
