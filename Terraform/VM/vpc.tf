@@ -1,9 +1,4 @@
 # created vpc with its components and security group
-
-provider "aws" {
-  region = var.vpc_region
-}
-
 resource "aws_vpc" "new_vpc" {
   cidr_block = var.vpc_cidr_block
   tags = {

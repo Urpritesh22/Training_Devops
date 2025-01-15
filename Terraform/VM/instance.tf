@@ -4,7 +4,8 @@ resource "aws_instance" "new_instance" {
     subnet_id = aws_subnet.subnet1.id
     vpc_security_group_ids = [aws_security_group.security_group.id]
 
+    count = 3
     tags = {
-      Name = var.ec2_name_tag
+      Name = "Server $(count.index)"
     }
 }
