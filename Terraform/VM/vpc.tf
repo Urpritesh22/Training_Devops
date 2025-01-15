@@ -1,22 +1,22 @@
 # created vpc with its components and security group
 
 provider "aws" {
-  region = "ap-south-1"
+  region = var.vpc_region
 }
 
 resource "aws_vpc" "new_vpc" {
-  cidr_block = "10.10.0.0/16"
+  cidr_block = var.vpc_cidr_block
   tags = {
-    Name = "VPC1"
+    Name = var.vpc_name_tag
   }
 }
 
 resource "aws_subnet" "subnet1" {
   vpc_id = aws_vpc.new_vpc.id
-  cidr_block = "10.10.1.0/24"
+  cidr_block = var.subnet_cidr_block
 
   tags = {
-    Name = "VPC2"
+    Name = var.subnet_name
   }
 }
 
@@ -24,7 +24,7 @@ resource "aws_internet_gateway" "igw1" {
   vpc_id = aws_vpc.new_vpc.id
 
   tags = {
-    Name = "IGW"
+    Name = var.igw_name
   }
 }
 
